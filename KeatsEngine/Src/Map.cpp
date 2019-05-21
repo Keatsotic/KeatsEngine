@@ -66,7 +66,7 @@ Map::DrawMap()
 			type = map[row][column];
 			dest.x = column * tileSize;
 			dest.y = row * tileSize;
-			//hmmm
+
 			switch (type)
 			{
 			case 0:
