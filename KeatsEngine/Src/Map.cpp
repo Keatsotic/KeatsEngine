@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "TextureManager.h"
 
+// TO DO -- take in xml/tiled sheet and parse map
 int lvl1[20][25] = { 
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -37,6 +38,9 @@ Map::Map()
 	dest.w = dest.h = tileSize;
 	dest.x = dest.y = 0;
 }
+
+Map::~Map()
+{}
 
 void 
 Map::LoadMap(int arr[20][25])
@@ -77,8 +81,4 @@ Map::DrawMap()
 			}
 		}
 	}
-}
-
-Map::~Map()
-{
 }

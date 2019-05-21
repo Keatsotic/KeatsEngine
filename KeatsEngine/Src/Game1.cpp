@@ -10,11 +10,10 @@ Map* map;
 SDL_Renderer* Game1::renderer = nullptr;
 
 Game1::Game1()
-{
-}
+{}
+
 Game1::~Game1()
-{
-}
+{}
 
 void
 Game1::Initialize(const char* title, int xPos, int yPos, int width, int height, bool fullScreen)

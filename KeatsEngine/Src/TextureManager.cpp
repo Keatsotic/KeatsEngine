@@ -2,13 +2,10 @@
 
 
 TextureManager::TextureManager()
-{
-}
-
+{}
 
 TextureManager::~TextureManager()
-{
-}
+{}
 
 SDL_Texture* 
 TextureManager::LoadTexture(const char* filename)
