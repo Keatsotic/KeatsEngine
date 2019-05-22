@@ -1,13 +1,16 @@
 #include "Game1.h"
 #include "TextureManager.h"
-#include "GameObject.h"
 #include "Map.h"
+#include "Components/Components.h"
+#include "Vector2D.h"
 
-GameObject* player;
-GameObject* enemy;
 
+Manager manager;
 Map* map;
+
 SDL_Renderer* Game1::renderer = nullptr;
+
+auto& player(manager.AddEntity());
 
 Game1::Game1()
 {}
@@ -46,9 +49,11 @@ Game1::Initialize(const char* title, int xPos, int yPos, int width, int height, 
 		isRunning = true;
 	}
 	
-	player = new GameObject("assets/Sprites/Player/s_player_idle.png", 0, 0);
-	enemy = new GameObject("assets/Sprites/Enemy/s_enemy.png", 100, 0);
 	map = new Map();
+
+	player.AddComponent<Transform>(50, 50);
+	player.AddComponent<Sprite>("assets/Sprites/Player/s_player_idle.png");
+	
 }
 
 void 
@@ -72,17 +77,22 @@ Game1::HandleEvents()
 void 
 Game1::Update()
 {
-	player->Update();
-	enemy->Update();
-}
+	manager.Refresh();
+	manager.Update();
 
+	player.GetComponent<Transform>().position.Add(Vector2D(5, 0)); //
+
+	if (player.GetComponent<Transform>().position.x > 100)
+	{
+		player.GetComponent<Sprite>().setTexture("assets/Sprites/Enemy/s_enemy.png");
+	}
+}
 void 
 Game1::Render()
 {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-	player->Render();
-	enemy->Render();
+	manager.Draw();
 	SDL_RenderPresent(renderer);
 }
 

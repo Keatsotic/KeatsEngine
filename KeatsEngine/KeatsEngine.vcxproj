@@ -135,9 +135,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Components\Components.h" />
+    <ClInclude Include="Src\Components\EntityComponent.h" />
+    <ClInclude Include="Src\Components\Transform.h" />
+    <ClInclude Include="Src\Vector2D.h" />
     <ClInclude Include="Src\Map.h" />
     <ClInclude Include="Src\Game1.h" />
     <ClInclude Include="Src\GameObject.h" />
+    <ClInclude Include="Src\Components\Sprite.h" />
     <ClInclude Include="Src\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +151,7 @@
     <ClCompile Include="Src\GameObject.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\TextureManager.cpp" />
+    <ClCompile Include="Src\Vector2D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
